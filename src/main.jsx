@@ -16,7 +16,7 @@ function Wordmark() {
 function ProjectVisual({ type, label }) {
   if (type === "dcernx") {
     return (
-      <div className="project-visual visual-dcernx" aria-label={`${label} screenshot placeholder`}>
+      <div className="project-visual visual-dcernx" aria-label={`${label} NDA-safe product mockup`}>
         <div className="window-bar"><i /><i /><i /><span>Research workspace</span></div>
         <div className="dcernx-shell">
           <div className="dcernx-rail">
@@ -39,31 +39,22 @@ function ProjectVisual({ type, label }) {
             <div className="agent-step"><i />Source synthesis</div>
           </div>
         </div>
-        <span className="placeholder-note">Product screenshot placeholder</span>
+        <span className="placeholder-note">NDA-safe product mockup</span>
       </div>
     );
   }
 
   if (type === "garden") {
     return (
-      <div className="project-visual visual-garden" aria-label={`${label} screenshot placeholder`}>
-        <div className="garden-toolbar"><b>Plan</b><span>Build</span><span>Plant</span><span>View</span></div>
-        <div className="garden-scene">
-          <div className="sun" />
-          <div className="house"><i /><b /></div>
-          <div className="tree tree-one"><i /></div>
-          <div className="tree tree-two"><i /></div>
-          <div className="plot plot-one" /><div className="plot plot-two" />
-          <div className="scene-grid" />
-        </div>
-        <div className="garden-panel"><small>OBJECTS</small><i /><i /><i /><i /></div>
-        <span className="placeholder-note">3D editor screenshot placeholder</span>
+      <div className="project-visual visual-garden" aria-label={`${label} NDA-safe 3D product mockup`}>
+        <img src="/mockups/garden-designer-3d.webp" alt="Fictional 3D garden design editor showing a rendered home, planting library and object properties" loading="lazy" />
+        <span className="placeholder-note">NDA-safe 3D product mockup</span>
       </div>
     );
   }
 
   return (
-    <div className="project-visual visual-krooki" aria-label={`${label} screenshot placeholder`}>
+    <div className="project-visual visual-krooki" aria-label={`${label} NDA-safe workflow mockup`}>
       <div className="window-bar"><i /><i /><i /><span>Approval operations</span></div>
       <div className="krooki-layout">
         <aside><b>K</b><i /><i /><i /><i /></aside>
@@ -74,7 +65,7 @@ function ProjectVisual({ type, label }) {
           <div className="approval-table"><i /><i /><i /><i /></div>
         </main>
       </div>
-      <span className="placeholder-note">Management system screenshot placeholder</span>
+      <span className="placeholder-note">NDA-safe workflow mockup</span>
     </div>
   );
 }
@@ -120,10 +111,26 @@ function App() {
         <section className="intro section-pad" id="about">
           <p className="section-label">01 / Profile</p>
           <div className="intro-copy">
-            <h2>Product-minded, systems-focused, and comfortable across the stack.</h2>
-            <div className="body-copy">
-              <p>Much of my work has started at an early stage: helping shape product direction, choosing the architecture, building the frontend and backend, integrating external systems, and taking the result into production.</p>
-              <p>Today, I apply that full-stack foundation to agentic AI—building research agents, document intelligence, voice experiences and tool-using workflows for practical use cases.</p>
+            <div className="intro-heading">
+              <h2>A full-stack foundation, applied to products with complex systems underneath.</h2>
+              <p>I tend to work where product decisions and engineering decisions overlap.</p>
+            </div>
+            <div className="profile-grid">
+              <article>
+                <span>01</span>
+                <h3>From early idea to production</h3>
+                <p>Helping define the product, choose the architecture, build the application and carry it through deployment.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Across the product stack</h3>
+                <p>Working across interfaces, APIs, data, realtime systems, integrations and infrastructure as the product requires.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>Applied AI in context</h3>
+                <p>Bringing agents, retrieval, document intelligence and voice into useful workflows—not treating them as isolated features.</p>
+              </article>
             </div>
           </div>
         </section>
