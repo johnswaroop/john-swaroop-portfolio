@@ -86,7 +86,10 @@ function App() {
         <nav aria-label="Primary navigation">
           <a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a>
         </nav>
-        <a className="nav-cta" href="mailto:johnswaroop28@gmail.com">Get in touch <Arrow /></a>
+        <div className="header-actions">
+          <a className="header-resume" href="/resume/John-Swaroop-Resume.pdf" download>Résumé <span>↓</span></a>
+          <a className="nav-cta" href="mailto:johnswaroop28@gmail.com">Get in touch <Arrow /></a>
+        </div>
       </header>
 
       <main>
@@ -106,6 +109,15 @@ function App() {
           <span><b>5+</b> years building products</span>
           <span><b>0→1</b> early-stage product work</span>
           <span><b>AI + Full-stack</b> across the product stack</span>
+        </section>
+
+        <section className="resume-callout section-pad" aria-labelledby="resume-heading">
+          <p className="section-label">Résumé</p>
+          <div>
+            <h2 id="resume-heading">The short version.</h2>
+            <p>Experience, selected projects and the technical stack—all in one place.</p>
+          </div>
+          <a className="button button-dark" href="/resume/John-Swaroop-Resume.pdf" download>Download résumé <span>↓</span></a>
         </section>
 
         <section className="intro section-pad" id="about">
@@ -213,7 +225,7 @@ function App() {
           <a className="contact-email" href="mailto:johnswaroop28@gmail.com">johnswaroop28@gmail.com <Arrow /></a>
           <div className="contact-footer">
             <Wordmark />
-            <div><a href="https://github.com/johnswaroop" target="_blank" rel="noreferrer">GitHub <Arrow /></a><a href="https://linkedin.com/in/john-swaroop-4389961b7" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href="https://dcernx.com" target="_blank" rel="noreferrer">DcernX <Arrow /></a></div>
+            <div><a href="/resume/John-Swaroop-Resume.pdf" download>Résumé <span>↓</span></a><a href="https://github.com/johnswaroop" target="_blank" rel="noreferrer">GitHub <Arrow /></a><a href="https://linkedin.com/in/john-swaroop-4389961b7" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href="https://dcernx.com" target="_blank" rel="noreferrer">DcernX <Arrow /></a></div>
             <span>© {new Date().getFullYear()} John Swaroop</span>
           </div>
         </section>
