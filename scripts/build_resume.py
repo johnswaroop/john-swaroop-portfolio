@@ -90,6 +90,18 @@ SELECTED_PROJECTS = [
         "summary": "A management platform supporting the Government of Oman in digitizing construction application and approval processes.",
         "detail": "Helped turn a multi-stage operational process into a structured digital workflow for application management, reviews, approvals and stakeholder coordination.",
     },
+    {
+        "title": "Interview Practice & Screening Platform",
+        "label": "APPLIED AI · REALTIME VOICE",
+        "summary": "An AI-powered voice platform for realistic interview practice and structured candidate screening.",
+        "detail": "Built end-to-end across question generation, live voice conversations, session management, evaluation and actionable feedback.",
+    },
+    {
+        "title": "Used-Car Dealer ERP",
+        "label": "DEALER ERP · COMMERCE PLATFORM",
+        "summary": "An end-to-end operating system combining vehicle inventory, lead management and a customizable customer-facing storefront.",
+        "detail": "Built automated storefront generation, lead capture and pipelines, dealer branding and merchandising controls across the full stack.",
+    },
 ]
 
 EXPERIENCE_PAGE_2 = [
@@ -116,8 +128,8 @@ EXPERIENCE_PAGE_2 = [
 AI_SYSTEMS = [
     ("Deep research & diligence", "Multi-agent research across documents, web sources and structured data, producing grounded findings, citations, claim/evidence links and risk analysis."),
     ("Realtime voice agents", "Streaming STT → LLM → TTS systems with VAD, tool execution, LiveKit Agents, Whisper and production integration workflows."),
-    ("AI interview systems", "Interview and screening products spanning question generation, response analysis, scoring, evaluation and video-introduction assessment."),
-    ("Chatbots & workflow agents", "Knowledge-grounded, tool-enabled experiences with multi-turn state, external actions, configurable workflows and customer-support automation."),
+    ("Workflow agents & automation", "Knowledge-grounded, tool-enabled agents with multi-turn state, configurable workflows, external actions and human review."),
+    ("Document intelligence pipelines", "Document ingestion, extraction, hierarchy-aware indexing, retrieval and structured analysis across complex files."),
 ]
 
 STACK = [
@@ -298,30 +310,31 @@ def build_docx(path):
     p.runs[0].font.color.rgb = RGBColor(98, 101, 94)
 
     docx_section_heading(doc, "Selected product work")
-    projects = doc.add_table(rows=1, cols=2)
-    for cell, project in zip(projects.rows[0].cells, SELECTED_PROJECTS):
+    projects = doc.add_table(rows=2, cols=2)
+    project_cells = [cell for row in projects.rows for cell in row.cells]
+    for cell, project in zip(project_cells, SELECTED_PROJECTS):
         set_cell_shading(cell, "F4F2ED")
-        set_cell_margins(cell, top=150, start=150, bottom=150, end=150)
+        set_cell_margins(cell, top=105, start=125, bottom=105, end=125)
         p = cell.paragraphs[0]
-        p.paragraph_format.space_after = Pt(5)
+        p.paragraph_format.space_after = Pt(3)
         r = p.add_run(project["label"])
         r.bold = True
-        r.font.size = Pt(7.4)
+        r.font.size = Pt(7)
         r.font.color.rgb = RGBColor(99, 84, 232)
         p = cell.add_paragraph(project["title"])
-        p.paragraph_format.space_after = Pt(6)
+        p.paragraph_format.space_after = Pt(4)
         r = p.runs[0]
         r.bold = True
         r.font.name = "Georgia"
-        r.font.size = Pt(12)
+        r.font.size = Pt(10.5)
         p = cell.add_paragraph(project["summary"])
-        p.paragraph_format.space_after = Pt(5)
-        p.paragraph_format.line_spacing = 1.08
-        p.runs[0].font.size = Pt(8.7)
+        p.paragraph_format.space_after = Pt(3)
+        p.paragraph_format.line_spacing = 1.03
+        p.runs[0].font.size = Pt(8.1)
         p = cell.add_paragraph(project["detail"])
         p.paragraph_format.space_after = Pt(0)
-        p.paragraph_format.line_spacing = 1.08
-        p.runs[0].font.size = Pt(8.3)
+        p.paragraph_format.line_spacing = 1.03
+        p.runs[0].font.size = Pt(7.8)
         p.runs[0].font.color.rgb = RGBColor(83, 85, 79)
 
     docx_section_heading(doc, "Earlier experience")
@@ -372,10 +385,10 @@ def pdf_styles():
         "bullet": ParagraphStyle("Bullet", fontName="Helvetica", fontSize=8.65, leading=11.7, leftIndent=11, firstLineIndent=-7, bulletIndent=0, textColor=colors.HexColor("#373934"), spaceAfter=3),
         "card_title": ParagraphStyle("CardTitle", fontName="Helvetica-Bold", fontSize=8, leading=10, textColor=colors.HexColor(PURPLE), spaceAfter=4),
         "card_body": ParagraphStyle("CardBody", fontName="Helvetica", fontSize=8.7, leading=12, textColor=colors.HexColor("#4D4F49")),
-        "project_label": ParagraphStyle("ProjectLabel", fontName="Helvetica-Bold", fontSize=7.2, leading=9, tracking=.8, textColor=colors.HexColor(PURPLE), spaceAfter=5),
-        "project_title": ParagraphStyle("ProjectTitle", fontName="Times-Roman", fontSize=15, leading=17, textColor=colors.HexColor(INK), spaceAfter=7),
-        "project_body": ParagraphStyle("ProjectBody", fontName="Helvetica", fontSize=9, leading=12.5, textColor=colors.HexColor("#3E403A"), spaceAfter=7),
-        "project_detail": ParagraphStyle("ProjectDetail", fontName="Helvetica", fontSize=8.5, leading=12, textColor=colors.HexColor(MUTED)),
+        "project_label": ParagraphStyle("ProjectLabel", fontName="Helvetica-Bold", fontSize=7, leading=8, tracking=.8, textColor=colors.HexColor(PURPLE), spaceAfter=3),
+        "project_title": ParagraphStyle("ProjectTitle", fontName="Times-Roman", fontSize=13, leading=14.5, textColor=colors.HexColor(INK), spaceAfter=4),
+        "project_body": ParagraphStyle("ProjectBody", fontName="Helvetica", fontSize=8.2, leading=10.3, textColor=colors.HexColor("#3E403A"), spaceAfter=4),
+        "project_detail": ParagraphStyle("ProjectDetail", fontName="Helvetica", fontSize=7.7, leading=10, textColor=colors.HexColor(MUTED)),
         "stack_label": ParagraphStyle("StackLabel", fontName="Helvetica-Bold", fontSize=7.8, leading=10, textColor=colors.HexColor(PURPLE)),
         "stack": ParagraphStyle("Stack", fontName="Helvetica", fontSize=8.5, leading=11.2, textColor=colors.HexColor("#454741")),
     }
@@ -384,15 +397,15 @@ def pdf_styles():
 def section_title(text, styles):
     content = Paragraph(text.upper(), styles["section"])
     table = Table([[content]], colWidths=[184 * mm])
-    table.spaceBefore = 12
-    table.spaceAfter = 7
+    table.spaceBefore = 9
+    table.spaceAfter = 5
     table.keepWithNext = True
     table.setStyle(TableStyle([
         ("LINEBELOW", (0, 0), (-1, -1), 0.45, colors.HexColor(LIGHT)),
         ("LEFTPADDING", (0, 0), (-1, -1), 0),
         ("RIGHTPADDING", (0, 0), (-1, -1), 0),
         ("TOPPADDING", (0, 0), (-1, -1), 0),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
     ]))
     return table
 
@@ -404,11 +417,11 @@ def experience_block(item, styles):
     ]], colWidths=[139 * mm, 45 * mm])
     heading.setStyle(TableStyle([
         ("LEFTPADDING", (0, 0), (-1, -1), 0), ("RIGHTPADDING", (0, 0), (-1, -1), 0),
-        ("TOPPADDING", (0, 0), (-1, -1), 1), ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+        ("TOPPADDING", (0, 0), (-1, -1), 1), ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
     ]))
     bullets = [Paragraph(f"• {bullet}", styles["bullet"]) for bullet in item["bullets"]]
-    return KeepTogether([heading, *bullets, Spacer(1, 7)])
+    return KeepTogether([heading, *bullets, Spacer(1, 4)])
 
 
 def pdf_header_footer(canvas, doc):
@@ -460,7 +473,7 @@ def build_pdf(path):
         ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F4F2ED")),
         ("LINEABOVE", (0, 0), (-1, -1), 1.1, colors.HexColor(PURPLE)),
         ("LEFTPADDING", (0, 0), (-1, -1), 9), ("RIGHTPADDING", (0, 0), (-1, -1), 9),
-        ("TOPPADDING", (0, 0), (-1, -1), 9), ("BOTTOMPADDING", (0, 0), (-1, -1), 9),
+        ("TOPPADDING", (0, 0), (-1, -1), 6), ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
     ]))
     story.append(strength_table)
@@ -481,14 +494,14 @@ def build_pdf(path):
             Paragraph(project["summary"], styles["project_body"]),
             Paragraph(project["detail"], styles["project_detail"]),
         ])
-    projects_table = Table([project_cells], colWidths=[90.5 * mm, 90.5 * mm], hAlign="LEFT")
+    projects_table = Table([project_cells[:2], project_cells[2:]], colWidths=[90.5 * mm, 90.5 * mm], hAlign="LEFT")
     projects_table.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F4F2ED")),
         ("LINEABOVE", (0, 0), (-1, -1), 1.2, colors.HexColor(PURPLE)),
         ("BOX", (0, 0), (-1, -1), 0.45, colors.HexColor(LIGHT)),
         ("INNERGRID", (0, 0), (-1, -1), 0.45, colors.HexColor(LIGHT)),
-        ("LEFTPADDING", (0, 0), (-1, -1), 13), ("RIGHTPADDING", (0, 0), (-1, -1), 13),
-        ("TOPPADDING", (0, 0), (-1, -1), 15), ("BOTTOMPADDING", (0, 0), (-1, -1), 15),
+        ("LEFTPADDING", (0, 0), (-1, -1), 10), ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+        ("TOPPADDING", (0, 0), (-1, -1), 6), ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
     ]))
     story.append(projects_table)
@@ -507,7 +520,7 @@ def build_pdf(path):
         ("BOX", (0, 0), (-1, -1), 0.4, colors.HexColor(LIGHT)),
         ("INNERGRID", (0, 0), (-1, -1), 0.4, colors.HexColor(LIGHT)),
         ("LEFTPADDING", (0, 0), (-1, -1), 11), ("RIGHTPADDING", (0, 0), (-1, -1), 11),
-        ("TOPPADDING", (0, 0), (-1, -1), 12), ("BOTTOMPADDING", (0, 0), (-1, -1), 12),
+        ("TOPPADDING", (0, 0), (-1, -1), 8), ("BOTTOMPADDING", (0, 0), (-1, -1), 8),
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
     ]))
     story.append(systems_table)
@@ -521,7 +534,7 @@ def build_pdf(path):
         ("BACKGROUND", (0, 3), (-1, 3), colors.HexColor("#F7F5F0")),
         ("LINEBELOW", (0, 0), (-1, -1), 0.35, colors.HexColor(LIGHT)),
         ("LEFTPADDING", (0, 0), (-1, -1), 7), ("RIGHTPADDING", (0, 0), (-1, -1), 7),
-        ("TOPPADDING", (0, 0), (-1, -1), 7), ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+        ("TOPPADDING", (0, 0), (-1, -1), 5), ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
     ]))
     story.append(stack_table)

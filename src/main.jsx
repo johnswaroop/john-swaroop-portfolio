@@ -16,30 +16,8 @@ function Wordmark() {
 function ProjectVisual({ type, label }) {
   if (type === "dcernx") {
     return (
-      <div className="project-visual visual-dcernx" aria-label={`${label} NDA-safe product mockup`}>
-        <div className="window-bar"><i /><i /><i /><span>Research workspace</span></div>
-        <div className="dcernx-shell">
-          <div className="dcernx-rail">
-            <b>D</b><i /><i /><i /><i />
-          </div>
-          <div className="dcernx-main">
-            <div className="ui-kicker">DILIGENCE BRIEF</div>
-            <div className="ui-title">Investment thesis</div>
-            <div className="evidence-row">
-              <span className="evidence-score">84</span>
-              <div><b>Evidence confidence</b><small>12 sources · 38 claims mapped</small></div>
-            </div>
-            <div className="ui-lines"><i /><i /><i /><i /></div>
-            <div className="citation-pills"><span>[01]</span><span>[04]</span><span>[12]</span></div>
-          </div>
-          <div className="dcernx-side">
-            <small>RESEARCH PLAN</small>
-            <div className="agent-step done"><i />Market landscape</div>
-            <div className="agent-step active"><i />Risk analysis</div>
-            <div className="agent-step"><i />Source synthesis</div>
-          </div>
-        </div>
-        <span className="placeholder-note">NDA-safe product mockup</span>
+      <div className="project-visual app-screenshot visual-dcernx" aria-label={`${label} NDA-safe investment research application screenshot`}>
+        <img src="/mockups/dcernx-app-screenshot.webp" alt="Fictional DcernX investment research application showing an investment memo, linked evidence, sources and confidence scoring" loading="lazy" />
       </div>
     );
   }
@@ -53,19 +31,25 @@ function ProjectVisual({ type, label }) {
     );
   }
 
-  return (
-    <div className="project-visual visual-krooki" aria-label={`${label} NDA-safe workflow mockup`}>
-      <div className="window-bar"><i /><i /><i /><span>Approval operations</span></div>
-      <div className="krooki-layout">
-        <aside><b>K</b><i /><i /><i /><i /></aside>
-        <main>
-          <small>APPLICATIONS</small>
-          <strong>Construction approvals</strong>
-          <div className="metric-row"><span><b>128</b><small>In review</small></span><span><b>46</b><small>Approved</small></span><span><b>08</b><small>Flagged</small></span></div>
-          <div className="approval-table"><i /><i /><i /><i /></div>
-        </main>
+  if (type === "interview") {
+    return (
+      <div className="project-visual app-screenshot visual-interview" aria-label={`${label} NDA-safe live voice interview application screenshot`}>
+        <img src="/mockups/interview-app-screenshot.webp" alt="Fictional AI interview application showing a live practice session, voice waveform, transcript and response evaluation" loading="lazy" />
       </div>
-      <span className="placeholder-note">NDA-safe workflow mockup</span>
+    );
+  }
+
+  if (type === "dealer") {
+    return (
+      <div className="project-visual app-screenshot visual-dealer" aria-label={`${label} NDA-safe dealer ERP application screenshot`}>
+        <img src="/mockups/dealer-erp-app-screenshot.webp" alt="Fictional used-car dealer ERP showing inventory, active leads, test drives, performance and a published storefront" loading="lazy" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="project-visual app-screenshot visual-krooki" aria-label={`${label} NDA-safe government permit review application screenshot`}>
+      <img src="/mockups/krooki-app-screenshot.webp" alt="Fictional Krooki government permit review application showing construction details, submitted documents, a plot map and approval controls" loading="lazy" />
     </div>
   );
 }
@@ -161,7 +145,7 @@ function App() {
         <section className="work section-pad" id="work">
           <div className="section-heading">
             <p className="section-label">02 / Selected work</p>
-            <h2>Selected work across intelligence, design, and public infrastructure.</h2>
+            <h2>Selected work across AI, commerce, design, and public infrastructure.</h2>
           </div>
 
           <article className="case-study case-featured">
@@ -197,13 +181,35 @@ function App() {
                 <div className="tag-list"><span>Workflow automation</span><span>Full-stack</span><span>Systems design</span><span>GovTech</span></div>
               </div>
             </article>
+
+            <article className="case-study">
+              <ProjectVisual type="interview" label="Interview practice and screening platform" />
+              <div className="case-info">
+                <div><span className="project-index">04</span><span className="project-type">Applied AI · Realtime voice</span></div>
+                <h3>Interview Practice &amp; Screening Platform</h3>
+                <p className="case-lede">An AI-powered voice interview platform for realistic practice sessions and structured candidate screening.</p>
+                <p>Built end-to-end across question generation, live voice conversations, session management, evaluation and actionable feedback.</p>
+                <div className="tag-list"><span>Realtime voice</span><span>AI interviews</span><span>Full-stack</span><span>Evaluation workflows</span></div>
+              </div>
+            </article>
+
+            <article className="case-study">
+              <ProjectVisual type="dealer" label="Used-car dealer ERP" />
+              <div className="case-info">
+                <div><span className="project-index">05</span><span className="project-type">Dealer ERP · Commerce platform</span></div>
+                <h3>Used-Car Dealer ERP</h3>
+                <p className="case-lede">An end-to-end operating system for used-car dealerships, combining inventory, leads and a customizable customer-facing storefront.</p>
+                <p>Built end-to-end across automated storefront generation, vehicle inventory, lead capture and pipeline management, branding and merchandising controls.</p>
+                <div className="tag-list"><span>Dealer ERP</span><span>Storefront automation</span><span>Lead management</span><span>Full-stack</span></div>
+              </div>
+            </article>
           </div>
 
           <div className="systems-strip">
             <div className="systems-intro"><span>Applied AI systems</span><h3>AI systems designed around real workflows.</h3></div>
             <div className="system-card"><span>01</span><h4>Deep research agents</h4><p>Evidence-backed research across private documents, web sources and structured data—with citations and claim-to-evidence links.</p></div>
             <div className="system-card"><span>02</span><h4>Realtime voice agents</h4><p>Streaming STT–LLM–TTS systems with turn detection, tool execution and production integration workflows.</p></div>
-            <div className="system-card"><span>03</span><h4>AI interview systems</h4><p>Interview and screening products covering question generation, response analysis, evaluation and video assessment.</p></div>
+            <div className="system-card"><span>03</span><h4>Workflow agents</h4><p>Tool-enabled agents that move work through configurable workflows, external actions and human review.</p></div>
           </div>
         </section>
 
