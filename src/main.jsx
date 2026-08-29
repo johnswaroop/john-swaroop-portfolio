@@ -113,11 +113,8 @@ function App() {
 
         <section className="resume-callout section-pad" aria-labelledby="resume-heading">
           <p className="section-label">Résumé</p>
-          <div>
-            <h2 id="resume-heading">The short version.</h2>
-            <p>Experience, selected projects and the technical stack—all in one place.</p>
-          </div>
-          <a className="button button-dark" href="/resume/John-Swaroop-Resume.pdf" download>Download résumé <span>↓</span></a>
+          <h2 id="resume-heading">Download my résumé.</h2>
+          <a className="resume-download" href="/resume/John-Swaroop-Resume.pdf" download>Download PDF <span>↓</span></a>
         </section>
 
         <section className="intro section-pad" id="about">
