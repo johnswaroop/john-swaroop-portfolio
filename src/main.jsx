@@ -96,8 +96,8 @@ function App() {
           <div className="hero-bottom">
             <p>Founder, full-stack engineer and applied AI specialist. I work with early ideas and evolving requirements, contributing across system architecture, interface design, AI workflows and deployment.</p>
             <div className="hero-links">
-              <a className="button button-dark" href="#work">Explore selected work <span>↓</span></a>
-              <a className="text-link" href="/resume/John-Swaroop-Resume.pdf" download>Download résumé <Arrow /></a>
+              <a className="button button-dark" href="/resume/John-Swaroop-Resume.pdf" download>Download résumé <span>↓</span></a>
+              <a className="text-link" href="mailto:johnswaroop28@gmail.com">Get in touch <Arrow /></a>
             </div>
           </div>
         </section>
@@ -145,7 +145,7 @@ function App() {
             <div className="case-info">
               <div><span className="project-index">01</span><span className="project-type">Founder product · Applied AI</span></div>
               <h3>DcernX</h3>
-              <p className="case-lede">An AI operating system for venture capital, private equity and investment teams, designed to make complex research more structured, collaborative and traceable.</p>
+              <p className="case-lede">An AI operating system for venture capital, private equity and investment teams, built in partnership with a UK-based accelerator and designed to make complex research more structured, collaborative and traceable.</p>
               <p>Working across the product and technical architecture: multi-agent research, document ingestion, hierarchical retrieval, evidence mapping, structured outputs, provider routing and the full-stack workspace around them.</p>
               <div className="tag-list"><span>Product architecture</span><span>Agentic workflows</span><span>Next.js</span><span>Python</span><span>RAG</span><span>LangGraph</span></div>
             </div>

@@ -49,7 +49,7 @@ EXPERIENCE_PAGE_1 = [
         "company": "DcernX",
         "date": "2025 — Present",
         "bullets": [
-            "Building an AI operating system for venture capital, private equity and investment teams, centered on agentic research, document intelligence and collaborative diligence.",
+            "Building an AI operating system for venture capital, private equity and investment teams in partnership with a UK-based accelerator, centered on agentic research, document intelligence and collaborative diligence.",
             "Designed multi-agent research workflows that coordinate web search, uploaded documents, specialized agents, tool calls and structured outputs through stateful orchestration.",
             "Built evidence-backed analysis with citation grounding, claim-to-evidence mapping, risk extraction and multi-document reasoning.",
             "Developed ingestion and retrieval pipelines using Docling, PageIndex, RAG and hierarchical/vector retrieval strategies.",
