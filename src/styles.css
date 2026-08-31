@@ -19,13 +19,6 @@ body { margin: 0; min-width: 320px; background: var(--paper); }
 a { color: inherit; text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
 
-.resume-page { height: 100svh; display: grid; grid-template-rows: 68px minmax(0, 1fr); }
-.resume-page > header { width: min(100% - 48px, 1440px); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
-.resume-back, .resume-page-download { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; }
-.resume-page-download { min-height: 38px; padding: 0 15px; border-radius: 100px; color: white; background: var(--ink); }
-.resume-page > main { min-height: 0; padding: 16px 24px 24px; }
-.resume-page iframe { width: 100%; height: 100%; display: block; border: 1px solid var(--line); background: white; }
-
 .site-header {
   width: min(100% - 48px, 1440px);
   height: 68px;
@@ -192,7 +185,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 @media (max-width: 600px) {
-  .resume-page { grid-template-rows:60px minmax(0,1fr); }.resume-page > header { width:calc(100% - 32px); }.resume-page > main { padding:10px 10px 14px; }
   .wordmark-name { display:none; }.site-header { height:60px; }.header-actions { gap:10px; }.header-resume { min-height:34px; padding:0 12px; }
   .hero { min-height:calc(100svh - 60px); padding-bottom:40px; }.hero h1 { font-size:15vw; }.hero-bottom > p { font-size:19px; }.hero-links { gap:18px; }.button { min-height:50px; }
   .resume-callout { grid-template-columns:1fr auto; gap:16px; min-height:90px; }.resume-callout h2 { font-size:26px; }.resume-download { padding:0 12px; font-size:0; gap:0; }.resume-download span { font-size:16px; }

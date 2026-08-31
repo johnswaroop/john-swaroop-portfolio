@@ -54,20 +54,6 @@ function ProjectVisual({ type, label }) {
   );
 }
 
-function ResumePage() {
-  return (
-    <div className="resume-page">
-      <header>
-        <a className="resume-back" href="/">← Back to portfolio</a>
-        <a className="resume-page-download" href="/resume/John-Swaroop-Resume.pdf" download>Download PDF <span>↓</span></a>
-      </header>
-      <main>
-        <iframe src="/resume/John-Swaroop-Resume.pdf#view=FitH" title="John Swaroop résumé PDF" />
-      </main>
-    </div>
-  );
-}
-
 function App() {
   const experience = [
     ["2025—Now", "Founder & CTO", "DcernX", "AI operating system for investment research and diligence."],
@@ -85,7 +71,7 @@ function App() {
           <a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a>
         </nav>
         <div className="header-actions">
-          <a className="header-resume" href="/resume/">Résumé <Arrow /></a>
+          <a className="header-resume" href="/resume/John-Swaroop-Resume.pdf">Résumé <Arrow /></a>
           <a className="nav-cta" href="mailto:johnswaroop28@gmail.com">Get in touch <Arrow /></a>
         </div>
       </header>
@@ -242,7 +228,7 @@ function App() {
           <a className="contact-email" href="mailto:johnswaroop28@gmail.com">johnswaroop28@gmail.com <Arrow /></a>
           <div className="contact-footer">
             <Wordmark />
-            <div><a href="/resume/">Résumé <Arrow /></a><a href="https://github.com/johnswaroop" target="_blank" rel="noreferrer">GitHub <Arrow /></a><a href="https://linkedin.com/in/john-swaroop-4389961b7" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href="https://dcernx.com" target="_blank" rel="noreferrer">DcernX <Arrow /></a></div>
+            <div><a href="/resume/John-Swaroop-Resume.pdf">Résumé <Arrow /></a><a href="https://github.com/johnswaroop" target="_blank" rel="noreferrer">GitHub <Arrow /></a><a href="https://linkedin.com/in/john-swaroop-4389961b7" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a><a href="https://dcernx.com" target="_blank" rel="noreferrer">DcernX <Arrow /></a></div>
             <span>© {new Date().getFullYear()} John Swaroop</span>
           </div>
         </section>
@@ -253,4 +239,8 @@ function App() {
 
 const isResumeRoute = ["/resume", "/resume/"].includes(window.location.pathname);
 
-createRoot(document.getElementById("root")).render(isResumeRoute ? <ResumePage /> : <App />);
+if (isResumeRoute) {
+  window.location.replace("/resume/John-Swaroop-Resume.pdf");
+} else {
+  createRoot(document.getElementById("root")).render(<App />);
+}
